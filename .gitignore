@@ -1,0 +1,16 @@
+# 파이썬 캐시 / 가상환경
+__pycache__/
+venv/
+env/
+
+# Streamlit 캐시
+.streamlit/
+
+# macOS 시스템 파일
+.DS_Store
+
+# Python test files
+interface_test.py
+
+# .gitignore
+.streamlit/secrets.toml
