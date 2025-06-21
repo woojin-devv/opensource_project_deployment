@@ -1,9 +1,8 @@
 #!/bin/bash
 
-# 프로젝트 및 서비스 정보
 PROJECT_ID="opensource-project-463412"
 SERVICE_NAME="streamlit-nutrition-app"
-REGION="asia-northeast3"  # 한국 리전 (서울)
+REGION="asia-northeast3"
 IMAGE_URI="gcr.io/$PROJECT_ID/$SERVICE_NAME"
 
 echo "🔧 GCP 프로젝트 설정 중..."
@@ -20,8 +19,8 @@ gcloud run deploy $SERVICE_NAME \
   --allow-unauthenticated \
   --port 8080 \
   --memory 2Gi \
-  --timeout 300s
+  --timeout 300s \
+  --update-env-vars GEMINI_API_KEY=$GEMINI_API_KEY
 
 echo "✅ 배포 완료!"
 gcloud run services describe $SERVICE_NAME --region $REGION --format='value(status.url)'
-
